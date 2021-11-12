@@ -1,0 +1,5 @@
+ALTER TABLE termekek ADD (szin CHAR(20));
+
+DROP TABLE termekek;
+
+DELETE FROM termekek WHERE kategoria IS NULL;

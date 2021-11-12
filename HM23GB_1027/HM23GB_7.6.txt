@@ -1,0 +1,5 @@
+INSERT INTO termekek VALUES (11,’bab’,2000,’Z’);
+
+DELETE FROM termekek WHERE ear < X;
+
+UPDATE termekek SET ear = ear*.9 WHERE kategoria = Y;
