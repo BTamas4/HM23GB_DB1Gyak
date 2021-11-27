@@ -1,0 +1,7 @@
+ALTER TABLE alkatresz ADD ( ar INT CHECK (ar > 0)) 
+
+SELECT nev FROM gyarto WHERE adoszam NOT IN (SELECT gyartoFROM termek)
+
+UPDATE termek SET ear = 1.1*ear WHERE tkod IN ( SELECT termek FROM komponens WHERE alkatresz = (SELECT akod FROM alkatresz WHERE nev = ‘X’))
+
+CREATE VIEW et AS SELECT MAX(t.nev) nev, t.tkod, COUNT(*) dbFROM termek t INNER JOIN egysegek e ON e.aru = t.tkodGROUP BY t.tkod
