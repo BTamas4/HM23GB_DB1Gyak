@@ -1,0 +1,5 @@
+SELECT tipus, AVG(ar), MAX(ar) - MIN(ar) FROM tanfolyam GROUP BY tipus
+
+SELECT megnevezes, CASE WHEN ar > 100000 THEN ‘drága’ ELSE ‘olcsó’ END arkategoria FROM termek
+
+SELECT nev, CASE WHEN db > 10 THEN ‘népszerű’ ELSE ‘nem népszerű’ END letszam FROM tdb
