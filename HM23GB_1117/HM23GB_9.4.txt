@@ -1,0 +1,3 @@
+ALTER TABLE termek ADD (kategoria CHAR(50))
+
+SELECT kategoria FROM kgy2 WHERE db = (SELECT COUNT(*) FROM gyarto)
