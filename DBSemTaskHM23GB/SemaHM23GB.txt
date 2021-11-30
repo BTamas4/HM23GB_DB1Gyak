@@ -1,0 +1,8 @@
+Rendelés(RendelésID, Teljes ár, Dátum, VevőID, EladóID, FutárID)
+Futár(FutárID, Futár név, Telefonszám)
+Vevő(VevőID, Név, Irányítószám, Város, Utca, Házszám, Telefonszám, E-mail cím)
+Bankkártya(BankkártyaID, Tulajdonos, Lejárati dátum, VevőID)
+R-T kapcsolótábla(RTID, TermékID, RendelésID)
+Tételek(TermékID, Termék név, Ár)
+R-E kapcsolótábla(EladóID, RendelésID)
+Eladó/üzlet(EladóID, Üzletnév, Telefonszám)

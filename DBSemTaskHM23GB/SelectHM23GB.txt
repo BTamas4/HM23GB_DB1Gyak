@@ -1,0 +1,20 @@
+1.SELECT * FROM rendeles WHERE Datum = '2021-11-29';
+π RendelesID,Teljesar,Datum,VevoID,FutarID [σDatum = ’2021-11-29’(rendeles)]
+2.SELECT TermekID, Termeknev, Ar FROM tetelek WHERE Ar > 25000;
+π TermekID, Termeknev, Ar [σAr > 25000(termekek)]
+3.SELECT count(RendelesID),AVG(Teljesar) FROM rendeles WHERE Teljesar>(SELECT avg(Teljesar) FROM rendeles);
+π count(RendelesID), AVG(Teljesar) [σTeljesar>(π AVG(Teljesar)(rendeles))(rendeles)]
+4.SELECT Termeknev, Ar FROM tetelek ORDER BY Ar;
+π Termeknev, Ar(tetelek)
+5.SELECT Nev,Telefonszam,Emailcim FROM vevo;
+π Nev,Telefonszam,EmailcimVEVO
+6.SELECT Nev,count(BankkartyaID) FROM bankkartya INNER JOIN vevo ON bankkartya.VevoID = vevo.VevoID GROUP BY nev;
+πNev,count(BankkartyaID)Γ count(BankkartyaID),Nev Nev  (Bankkartya⨝Bankkartya.VevoID=vevo.VevoID vevo)
+7.SELECT TermekID,Datum FROM rendeles INNER JOIN rt_kapcsolo ON rendeles.RendelesID = rt_kapcsolo.RendelesID WHERE TermekID='1';
+πTermekID,Datum [σ TermekID=’1’(rendeles⨝RENDELES.RendelesID = rt_kapcsolo.RendelesID rt_kapcsolo )]
+8.SELECT BankkartyaID, Lejarati_datum FROM bankkartya INNER JOIN vevo ON bankkartya.VevoID=vevo.VevoID WHERE Hazszam=10;
+π Bankkartya, Lejarati_datum  [σ Hazszam=10 (bankkartya ⨝ bankkartya.VevoID = vevo.VevoID Vevo)]
+9.SELECT RendelesID FROM rendeles WHERE Teljesar > ANY (SELECT Teljesar FROM rendeles WHERE Teljesar=30000);
+π RendelesID σ Teljesar>( π Teljesar σ Teljesar=30 rendeles) rendeles
+10.SELECT VevoID,Nev,Iranyitoszam,Varos,Utca,Telefonszám,Emailcim FROM vevo WHERE hazszam>20;
+πVevoID,Nev,Iranyitoszam,Varos,Utca,Telefonszám,Emailcim[σ hazszam>20(Pizzazo)]
