@@ -5,18 +5,18 @@ Iranyitoszam INT,
 Varos VARCHAR(50),
 Utca VARCHAR(50),
 Hazszam INT,
-Telefonszám INT,
+Telefonszám VARCHAR(11),
 Emailcim VARCHAR(50)
 );
 CREATE TABLE futar(
 FutarID INT PRIMARY KEY NOT NULL,
 Futarnev VARCHAR(50),
-Telefonszam INT
+Telefonszam VARCHAR(11)
 );
 CREATE TABLE elado(
 EladoID INT PRIMARY KEY NOT NULL,
 Eladonev VARCHAR(50),
-Telefonszam INT
+Telefonszam VARCHAR(11)
 );
 CREATE TABLE tetelek(
 TermekID INT PRIMARY KEY NOT NULL,
