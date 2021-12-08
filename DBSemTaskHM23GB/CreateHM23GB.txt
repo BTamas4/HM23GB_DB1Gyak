@@ -1,0 +1,60 @@
+CREATE TABLE vevo(
+VevoID INT PRIMARY KEY NOT NULL,
+Nev VARCHAR(50),
+Iranyitoszam INT,
+Varos VARCHAR(50),
+Utca VARCHAR(50),
+Hazszam INT,
+Telefonszám INT,
+Emailcim VARCHAR(50)
+);
+CREATE TABLE futar(
+FutarID INT PRIMARY KEY NOT NULL,
+Futarnev VARCHAR(50),
+Telefonszam INT
+);
+CREATE TABLE elado(
+EladoID INT PRIMARY KEY NOT NULL,
+Eladonev VARCHAR(50),
+Telefonszam INT
+);
+CREATE TABLE tetelek(
+TermekID INT PRIMARY KEY NOT NULL,
+Termeknev VARCHAR(50),
+Ar INT
+);
+CREATE TABLE bankkartya(
+BankkartyaID INT PRIMARY KEY NOT NULL,
+Tulajdonos VARCHAR(50),
+Lejarati_datum INT,
+VevoID INT,
+FOREIGN KEY (VevoID) REFERENCES vevo(VevoID)
+);
+CREATE TABLE rendeles(
+RendelesID INT PRIMARY KEY,
+Teljesar INT,
+Datum DATE,
+VevoID INT,
+FutarID INT,
+FOREIGN KEY (VevoID) REFERENCES vevo(VevoID),
+FOREIGN KEY (FutarID) REFERENCES futar(FutarID)
+);
+CREATE TABLE rt_kapcsolo(
+RTID INT PRIMARY KEY,
+TermekID INT,
+RendelesID INT,
+FOREIGN KEY (TermekID) REFERENCES tetelek(TermekID),
+FOREIGN KEY (RendelesID) REFERENCES rendeles(RendelesID)
+);
+CREATE TABLE re_kapcsolo(
+RendelesID INT PRIMARY KEY NOT NULL,
+EladoID INT,
+FOREIGN KEY (EladoID) REFERENCES elado(EladoID)
+);
+CREATE TABLE auto(
+AutoID INT PRIMARY KEY NOT NULL,
+Marka VARCHAR(50),
+Rendszam VARCHAR(50),
+FutarID INT,
+FOREIGN KEY (FutarID) REFERENCES futar(FutarID)
+);
